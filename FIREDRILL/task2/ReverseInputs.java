@@ -1,14 +1,14 @@
 public class ReverseInputs{
-    public static void main(String [] arg){
+//    public static void main(String [] arg){
+//
+//    System.out.print(taskTwo(10));
+//}
 
-    System.out.print(taskOne(10));
-}
-
-    public static String taskOne(int amountOfIntegers){
+    public static String taskTwo(int amountOfIntegers){
         java.util.Scanner inputCollector = new java.util.Scanner(System.in);
         
         int [] collections = new int [amountOfIntegers];
-        int index = collections.length-1;
+        int index = collections.length -1;
         int count = 0;
         
         for (;count < collections.length; count++){
@@ -18,10 +18,13 @@ public class ReverseInputs{
             collections[count] = userInput;
         }
 
+        int counter = 0;
+        while(counter < index){
+            int temp = collections[counter];
+            collections[counter] = collections[index];
+            collections[index] = temp;
 
-        for(int counter = 0;counter < collections.length;){
-            collections[count++] = collections[index--];
-            counter++;
+            counter++; index--;
         }
 
         return java.util.Arrays.toString(collections);
