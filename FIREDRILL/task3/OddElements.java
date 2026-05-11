@@ -6,13 +6,19 @@ public class OddElements{
 }
 
     public static String taskThree(int [] collections){
-
         int counter = 0;
-        for(;counter < collections.length; counter++){
-            if (collections[counter] % 2 != 0){}
-//            return java.util.Arrays.toString(collections);
+        int index = 0;
+        for(; counter < collections.length; counter++){
+            if (collections[counter] % 2 != 0){
+                collections[index++] = collections[counter];
             }
-        return java.util.Arrays.toString(collections);
+        }
+            int odd [] = new int [index];
+            for(int count = 0; count < odd.length; count++){
+
+                odd[count] = collections[count];
+            }
+        return java.util.Arrays.toString(odd);
     }
 
 }
