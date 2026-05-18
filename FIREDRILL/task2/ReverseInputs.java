@@ -8,7 +8,6 @@ public class ReverseInputs{
         java.util.Scanner inputCollector = new java.util.Scanner(System.in);
         
         int [] collections = new int [amountOfIntegers];
-        int index = collections.length -1;
         int count = 0;
         
         for (;count < collections.length; count++){
@@ -18,13 +17,15 @@ public class ReverseInputs{
             collections[count] = userInput;
         }
 
-        int counter = 0;
-        while(counter < index){
-            int temp = collections[counter];
-            collections[counter] = collections[index];
-            collections[index] = temp;
+        int swap = collections[0];
+        int firstElement = 0;
+        int lastElement = collections.length-1;;
+        while(firstElement < lastElement){
+            swap = collections[firstElement];
+            collections[firstElement] = collections[lastElement];
+            collections[lastElement] = swap;
 
-            counter++; index--;
+            firstElement++; lastElement--;
         }
 
         return java.util.Arrays.toString(collections);

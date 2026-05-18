@@ -5,36 +5,37 @@ public class DuplicateArray{
 
         int [] collections = {-1,-1,-1,-1,-1,-1,-1,-1,-1,-1};   
         int index = 0;     
-        int count = 1;
-        for(;count < collections.length; count++){
+        int count = 0;
+        for(;count < 10; count++){
             System.out.print("Enter a score from [10 - 100]: ");
             int userInput = inputCollector.nextInt();
 
             if (userInput >= 10 && userInput <= 100){
-                collections[index++] = userInput;
+//                collections[index++] = userInput;
 
-                for (int sameNumber = count; sameNumber < collections.length; sameNumber++){ 
+                int sameNumber;
+                for (sameNumber = 0; sameNumber < index; sameNumber++){ 
                     if (collections[sameNumber] == userInput){
-                        continue;
+                        break;
                     }
-                    else{
-                        collections[index++] = userInput;
-                    }
+               }
+                if (sameNumber == index){
+                    collections[index++] = userInput;
                 }
-                
             }
             
 
             else{
-                System.out.print("Invalid! score must be either [10 - 100]\nInput a score from [10 to 100]: ");
+                System.out.print("\nInvalid! score must be between [10 - 100]\nInput a score from [10 to 100]: ");
                 userInput = inputCollector.nextInt();
   
             }
         }
         for (int collectionsCount = 0; collectionsCount < collections.length; collectionsCount++){
-        
-        //System.out.print(collections[collectionsCount]);
+            if(collections[collectionsCount] != -1){
+                System.out.printf("%d ",collections[collectionsCount]);
+            }
         }
-        System.out.print(java.util.Arrays.toString(collections));
+//        System.out.print(java.util.Arrays.toString(collections));
     }
 }
